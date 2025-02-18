@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LPS Buddy</title>
+  <!-- Bootstrap CSS from CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1>LPS Buddy</h1>
+      <button class="btn btn-outline-secondary" id="toggleTheme">
+        <i class="fa-solid fa-moon" style="color: orange;"></i>
+      </button>
+    </div>
+    
+    <div class="row">
+      <!-- Parade State Update Card -->
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <i class="fa-solid fa-flag-checkered fa-3x mb-3"></i>
+            <h5 class="card-title">Parade State Update</h5>
+            <p class="card-text">Generate your parade state update report.</p>
+            <a href="parade.html" class="btn btn-primary">Go to Parade Update</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Ration Report Card -->
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <i class="fa-solid fa-utensils fa-3x mb-3"></i>
+            <h5 class="card-title">Ration Report</h5>
+            <p class="card-text">Generate the daily ration report.</p>
+            <a href="ration.html" class="btn btn-primary">Go to Ration Report</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Next Timing Card -->
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body text-center">
+            <i class="fa-solid fa-clock fa-3x mb-3"></i>
+            <h5 class="card-title">Next Timing</h5>
+            <p class="card-text">Set up your next timing report.</p>
+            <a href="nexttiming.html" class="btn btn-primary">Go to Next Timing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Common JavaScript -->
+  <script src="js/script.js"></script>
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
