@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   applyTheme();
-  // If the page has a date field, initialize it.
   if (document.getElementById("date")) {
     initializeDefaults();
   }
@@ -33,7 +32,7 @@ function applyTheme() {
   }
 }
 
-// Initialize Defaults (Auto-fill date in DDMMYY format)
+// Initialize Defaults (e.g., auto-fill date in DDMMYY format)
 function initializeDefaults() {
   const now = new Date();
   const day = now.getDate().toString().padStart(2, '0');
@@ -45,7 +44,7 @@ function initializeDefaults() {
   }
 }
 
-// Adjust Counter Function (common)
+// Adjust Counter (for -/+ buttons)
 function adjustCounter(id, change, max) {
   const input = document.getElementById(id);
   if (!input) return;
@@ -59,7 +58,7 @@ function adjustCounter(id, change, max) {
   input.value = value;
 }
 
-// Next Timing: Toggle "Other" Activity and Venue
+// Next Timing: Toggle "Other" for Activity and Venue
 function toggleOtherActivity() {
   const activitySelect = document.getElementById("activitySelect");
   const otherActivityDiv = document.getElementById("otherActivityDiv");
@@ -76,27 +75,13 @@ function toggleOtherVenue() {
   }
 }
 
-// Helper: Remove colon from time string (e.g., "06:05" becomes "0605")
+// Helper: Remove colon from time string (e.g., "17:30" => "1730")
 function formatTimeWithoutColon(timeStr) {
   return timeStr.replace(":", "");
 }
 
-// Helper: Format appointment date (used in other pages if needed)
-function formatAppointmentDate(dateStr) {
-  const months = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"];
-  const parts = dateStr.split("-");
-  if (parts.length !== 3) return dateStr;
-  const year = parts[0];
-  const monthIndex = parseInt(parts[1], 10) - 1;
-  const day = parts[2];
-  return `${day} ${months[monthIndex]} ${year}`;
-}
-
-// Generate Functions for Each Page
-
-// Parade State Update
-function generateParadeText() {
+// Parade State Update: Generate Text
+function generateText() {
   const date = document.getElementById("date").value;
   const paradeType = document.getElementById("paradeType").value;
   const sctRns = document.getElementById("sctRns").value;
@@ -112,12 +97,12 @@ function generateParadeText() {
   const lightsOut = document.getElementById("lightsOut").value;
   const fallIn = document.getElementById("fallIn").value;
   const remarks = document.getElementById("remarks").value;
-  
+
   const bookOutFormatted = bookOut ? formatTimeWithoutColon(bookOut) : "";
   const bookInFormatted = bookIn ? formatTimeWithoutColon(bookIn) : "";
   const lightsOutFormatted = lightsOut ? formatTimeWithoutColon(lightsOut) : "";
   const fallInFormatted = fallIn ? formatTimeWithoutColon(fallIn) : "";
-  
+
   const text = `Parade State Update 13th ASCC FATA 
 
 ${date} *${paradeType}*
@@ -152,11 +137,11 @@ Lights out timing: ${lightsOutFormatted}
 Fall in timing: ${fallInFormatted}
 
 Remarks: ${remarks}`;
-  
+
   document.getElementById("output").value = text;
 }
 
-// Ration Report
+// Ration Report: Generate Text
 function generateRationText() {
   const date = document.getElementById("date").value;
   const mealType = document.getElementById("mealType").value;
@@ -166,7 +151,7 @@ function generateRationText() {
   const vc = document.getElementById("vc").value;
   const nmsd = document.getElementById("nmsd").value;
   const remarks = document.getElementById("remarks").value;
-  
+
   let greeting = "";
   if (mealType === "BREAKFAST") {
     greeting = "Good morning trainers";
@@ -177,7 +162,7 @@ function generateRationText() {
   } else {
     greeting = "Good trainers";
   }
-  
+
   const text = `${greeting}, this is the ration report for 13th ASCC FATA
 
 *Daily Ration Reporting*
@@ -191,38 +176,38 @@ ES/IS
 *NMSD* ${nmsd}/1
 
 REMARKS: ${remarks}`;
-  
+
   document.getElementById("output").value = text;
 }
 
-// Next Timing
+// Next Timing: Generate Text
 function generateNextTiming() {
   const timeInput = document.getElementById("time").value;
   const formattedTime = timeInput ? formatTimeWithoutColon(timeInput) : "";
-  
+
   const activitySelect = document.getElementById("activitySelect");
   let activity = activitySelect ? activitySelect.value : "";
   if (activity === "Other") {
     activity = document.getElementById("otherActivity").value;
   }
-  
+
   const venueSelect = document.getElementById("venueSelect");
   let venue = venueSelect ? venueSelect.value : "";
   if (venue === "Other") {
     venue = document.getElementById("otherVenue").value;
   }
-  
+
   const attire = document.getElementById("attire") ? document.getElementById("attire").value : "";
-  
+
   const things = [];
   if (document.getElementById("bringEp") && document.getElementById("bringEp").checked) things.push("E-PACK");
   if (document.getElementById("bringWater") && document.getElementById("bringWater").checked) things.push("Water Bottle");
   if (document.getElementById("bringThermo") && document.getElementById("bringThermo").checked) things.push("Thermometer");
   if (document.getElementById("bring11B") && document.getElementById("bring11B").checked) things.push("11B");
   if (document.getElementById("bringWatch") && document.getElementById("bringWatch").checked) things.push("Polar Watch");
-  
+
   const thingsText = things.join(", ");
-  
+
   const outputText = `NEXT TIMING
 Time: *${formattedTime}*
 Activity: ${activity}
@@ -231,7 +216,7 @@ Attire: ${attire}
 
 Things to bring:
 ${thingsText}`;
-  
+
   document.getElementById("output").value = outputText;
 }
 
