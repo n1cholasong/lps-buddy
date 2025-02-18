@@ -42,3 +42,8 @@ body.dark-mode .card .btn {
   border-color: #444;
   color: var(--text-dark);
 }
+
+/* Additional custom styles */
+.counter-group {
+  margin-bottom: 10px;
+}
