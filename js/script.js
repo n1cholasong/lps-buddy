@@ -223,16 +223,16 @@ function generateRationText() {
 
   let greeting = "";
   if (mealType === "BREAKFAST") {
-    greeting = "Good morning trainers";
-  } else if (mealType === "LUNCH") {
-    greeting = "Good afternoon trainers";
-  } else if (mealType === "DINNER") {
-    greeting = "Good evening trainers";
-  } else {
-    greeting = "Good trainers";
+    greeting = "morning";
+  } 
+  if (mealType === "LUNCH") {
+    greeting = "afternoon";
+  } 
+  if (mealType === "DINNER") {
+    greeting = "evening";
   }
 
-  const text = `${greeting}, this is the ration report for 13th ASCC FATA
+  const text = `Good ${greeting} trainers, this is the ration report for 13th ASCC FATA
 
 *Daily Ration Reporting*
 ${date} *${mealType}*

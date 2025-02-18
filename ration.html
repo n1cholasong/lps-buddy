@@ -12,7 +12,7 @@
   <div class="container mt-4">
     <a href="index.html" class="text-primary text-decoration-none d-flex align-items-center mb-3">
       <i class="fa-solid fa-chevron-left"></i>
-      <span class="ms-1">Home</span>
+      <span class="ms-2">Home</span>
     </a>
     <div class="d-flex justify-content-between align-items-center">
       <h2>Ration Report</h2>
@@ -35,50 +35,50 @@
     <div class="counter-group">
       <label class="form-label">NM:</label>
       <div class="input-group">
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('nm', -1, 27)">-</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('nm', -1, 27)"><i class="fa-solid fa-minus"></i></button>
         <input type="text" id="nm" class="form-control text-center" value="27" readonly>
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('nm', 1, 27)">+</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('nm', 1, 27)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
     <div class="counter-group">
       <label class="form-label">M:</label>
       <div class="input-group">
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('m', -1, 2)">-</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('m', -1, 2)"><i class="fa-solid fa-minus"></i></button>
         <input type="text" id="m" class="form-control text-center" value="2" readonly>
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('m', 1, 2)">+</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('m', 1, 2)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
     <div class="counter-group">
       <label class="form-label">VI:</label>
       <div class="input-group">
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('vi', -1, 1)">-</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('vi', -1, 1)"><i class="fa-solid fa-minus"></i></button>
         <input type="text" id="vi" class="form-control text-center" value="1" readonly>
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('vi', 1, 1)">+</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('vi', 1, 1)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
     <div class="counter-group">
       <label class="form-label">VC:</label>
       <div class="input-group">
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('vc', -1, 0)">-</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('vc', -1, 0)"><i class="fa-solid fa-minus"></i></button>
         <input type="text" id="vc" class="form-control text-center" value="0" readonly>
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('vc', 1, 0)">+</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('vc', 1, 0)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
     <div class="counter-group">
       <label class="form-label">NMSD:</label>
       <div class="input-group">
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('nmsd', -1, 1)">-</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('nmsd', -1, 1)"><i class="fa-solid fa-minus"></i></button>
         <input type="text" id="nmsd" class="form-control text-center" value="1" readonly>
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('nmsd', 1, 1)">+</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('nmsd', 1, 1)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
     
     <label class="form-label mt-3">Remarks:</label>
     <textarea id="remarks" class="form-control" placeholder="Any additional remarks..."></textarea>
     
-    <button class="btn btn-success w-100 mt-3" onclick="generateRationText()">Generate</button>
+    <button class="btn btn-success w-100 mt-3" onclick="generateRationText()"><i class="fa-solid fa-gear"></i> Generate</button>
     <textarea id="output" class="form-control mt-3" readonly></textarea>
-    <button class="btn btn-secondary w-100 mt-2" onclick="copyText()">Copy to Clipboard</button>
+    <button class="btn btn-secondary w-100 mt-2" onclick="copyText()"><i class="fa-solid fa-copy"></i> Copy to Clipboard</button>
   </div>
   
   <script src="js/script.js"></script>

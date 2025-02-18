@@ -14,7 +14,7 @@
   <div class="container mt-4">
     <a href="index.html" class="text-primary text-decoration-none d-flex align-items-center mb-3">
       <i class="fa-solid fa-chevron-left"></i>
-      <span class="ms-1">Home</span>
+      <span class="ms-2">Home</span>
     </a>
     <div class="d-flex justify-content-between align-items-center">
       <h2>Parade State Update</h2>
@@ -38,17 +38,17 @@
     <div class="counter-group">
       <label class="form-label">SCT (RnS):</label>
       <div class="input-group">
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('sctRns', -1, 14)">-</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('sctRns', -1, 14)"><i class="fa-solid fa-minus"></i></button>
         <input type="text" id="sctRns" class="form-control text-center" value="14" readonly>
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('sctRns', 1, 14)">+</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('sctRns', 1, 14)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
     <div class="counter-group">
       <label class="form-label">OCT (RnS):</label>
       <div class="input-group">
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('octRns', -1, 1)">-</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('octRns', -1, 1)"><i class="fa-solid fa-minus"></i></button>
         <input type="text" id="octRns" class="form-control text-center" value="1" readonly>
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('octRns', 1, 1)">+</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('octRns', 1, 1)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
 
@@ -57,9 +57,9 @@
     <div class="counter-group">
       <label class="form-label">SCT (WLR):</label>
       <div class="input-group">
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('sctWlr', -1, 16)">-</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('sctWlr', -1, 16)"><i class="fa-solid fa-minus"></i></button>
         <input type="text" id="sctWlr" class="form-control text-center" value="16" readonly>
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('sctWlr', 1, 16)">+</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('sctWlr', 1, 16)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
 
@@ -67,25 +67,25 @@
     <div class="counter-group mt-3">
       <label class="form-label">Reporting sick:</label>
       <div class="input-group">
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('reportingSick', -1)">-</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('reportingSick', -1)"><i class="fa-solid fa-minus"></i></button>
         <input type="text" id="reportingSick" class="form-control text-center" value="0" readonly>
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('reportingSick', 1)">+</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('reportingSick', 1)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
     <div class="counter-group mt-3">
       <label class="form-label">Attend B:</label>
       <div class="input-group">
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('attendB', -1)">-</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('attendB', -1)"><i class="fa-solid fa-minus"></i></button>
         <input type="text" id="attendB" class="form-control text-center" value="0" readonly>
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('attendB', 1)">+</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('attendB', 1)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
     <div class="counter-group mt-3">
       <label class="form-label">Attend C:</label>
       <div class="input-group">
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('attendC', -1)">-</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('attendC', -1)"><i class="fa-solid fa-minus"></i></button>
         <input type="text" id="attendC" class="form-control text-center" value="0" readonly>
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('attendC', 1)">+</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('attendC', 1)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
 
@@ -99,16 +99,16 @@
     <div class="counter-group mt-3">
       <label class="form-label">Out of camp:</label>
       <div class="input-group">
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('outOfCamp', -1, 30)">-</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('outOfCamp', -1, 31)"><i class="fa-solid fa-minus"></i></button>
         <input type="text" id="outOfCamp" class="form-control text-center" value="0" readonly>
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('outOfCamp', 1, 30)">+</button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('outOfCamp', 1, 31)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
 
     <!-- Appointments Section -->
     <h5 class="mt-3">Upcoming appointments:</h5>
     <div id="appointmentsContainer"></div>
-    <button class="btn btn-primary w-100 mt-2" onclick="addAppointment()">+ Appointment</button>
+    <button class="btn btn-primary w-100 mt-2" onclick="addAppointment()"><i class="fa-solid fa-plus"></i> Appointment</button>
 
     <!-- Additional Fields -->
     <label class="form-label mt-3">OOC:</label>
@@ -124,9 +124,9 @@
     <textarea id="remarks" class="form-control" placeholder="Any additional remarks..."></textarea>
 
     <!-- Generate & Output -->
-    <button class="btn btn-success w-100 mt-3" onclick="generateText()">Generate</button>
+    <button class="btn btn-success w-100 mt-3" onclick="generateText()"><i class="fa-solid fa-gear"></i> Generate</button>
     <textarea id="output" class="form-control mt-3" readonly></textarea>
-    <button class="btn btn-secondary w-100 mt-2" onclick="copyText()">Copy to Clipboard</button>
+    <button class="btn btn-secondary w-100 mt-2" onclick="copyText()"><i class="fa-solid fa-copy"></i> Copy to Clipboard</button>
   </div>
 
   <!-- Bootstrap JS Bundle -->
