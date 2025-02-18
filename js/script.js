@@ -86,7 +86,7 @@ function addAppointment() {
   appointmentCount++;
   const container = document.getElementById("appointmentsContainer");
   const div = document.createElement("div");
-  div.classList.add("appointment-entry");
+  div.classList.add("appointment-entry, mb-3");
   div.innerHTML = `
     <h6>Appointment ${appointmentCount}</h6>
     <label class="form-label">Rank Name:</label>
@@ -102,8 +102,16 @@ function addAppointment() {
   container.appendChild(div);
 }
 
+function updateAppointmentIndexes() {
+    const appointments = document.querySelectorAll(".appointment-entry");
+    appointments.forEach((appointment, i) => {
+        appointment.querySelector(".appointment-index").innerText = i + 1;
+    });
+}
+
 function removeAppointment(button) {
-  button.parentElement.remove();
+    button.closest(".appointment-entry").remove();
+    updateAppointmentIndexes();
 }
 
 // Helper: Format appointment date from "YYYY-MM-DD" to "DD Month YYYY"
