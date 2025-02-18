@@ -6,6 +6,12 @@
   --text-dark: #ffffff;
 }
 
+#toggleTheme:hover,
+#toggleTheme:focus {
+  background-color: transparent;
+  box-shadow: none;
+}
+
 /* Global Light/Dark Mode */
 body.light-mode {
   background-color: var(--bg-light);
