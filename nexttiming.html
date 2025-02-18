@@ -31,6 +31,8 @@
       <option value="Breakfast">Breakfast</option>
       <option value="Lunch">Lunch</option>
       <option value="Dinner">Dinner</option>
+      <option value="Draw Arms">Draw Arms</option>
+      <option value="Send Arms">Send Arms</option>
       <option value="Other">Other</option>
     </select>
     <div id="otherActivityDiv" class="mt-2" style="display: none;">
@@ -41,6 +43,7 @@
     <select id="venueSelect" class="form-select" onchange="toggleOtherVenue()">
       <option value="Outside Notus Garage">Outside Notus Garage</option>
       <option value="BattleKing Room">BattleKing Room</option>
+      <option value="Foyer">Foyer</option>
       <option value="Other">Other</option>
     </select>
     <div id="otherVenueDiv" class="mt-2" style="display: none;">
@@ -49,7 +52,7 @@
     
     <label class="form-label mt-3">Attire:</label>
     <select id="attire" class="form-select">
-      <option value="S4">S4</option>
+      <option value="Smart 4">Smart 4</option>
       <option value="Admin">Admin</option>
       <option value="PT Kit">PT Kit</option>
     </select>
@@ -74,6 +77,10 @@
     <div class="form-check">
       <input class="form-check-input" type="checkbox" value="Polar Watch" id="bringWatch">
       <label class="form-check-label" for="bringWatch">Polar Watch</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="SAR21" id="bringSar21">
+      <label class="form-check-label" for="bringSar21">SAR21</label>
     </div>
     
     <button class="btn btn-success w-100 mt-3" onclick="generateNextTiming()">Generate</button>
