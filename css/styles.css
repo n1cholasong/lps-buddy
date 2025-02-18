@@ -1,0 +1,44 @@
+:root {
+  --bg-light: #ffffff;
+  --text-light: #000000;
+  
+  --bg-dark: #121212;
+  --text-dark: #ffffff;
+}
+
+/* Global Light/Dark Mode */
+body.light-mode {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+body.dark-mode {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+/* Form elements */
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background-color: #1e1e1e;
+  color: var(--text-dark);
+  border: 1px solid #444;
+}
+
+/* Card styles */
+body.dark-mode .card {
+  background-color: #1e1e1e;
+  color: var(--text-dark);
+  border: 1px solid #444;
+}
+
+body.dark-mode .card i {
+  color: var(--text-dark);
+}
+
+body.dark-mode .card .btn {
+  background-color: #444;
+  border-color: #444;
+  color: var(--text-dark);
+}
