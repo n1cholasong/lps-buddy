@@ -81,25 +81,31 @@ function formatTimeWithoutColon(timeStr) {
 }
 
 // Appointment Handling
-let appointmentCount = 0;
 function addAppointment() {
-  appointmentCount++;
-  const container = document.getElementById("appointmentsContainer");
-  const div = document.createElement("div");
-  div.classList.add("appointment-entry", "mb-3");
-  div.innerHTML = `
-    <h6>Appointment ${appointmentCount}</h6>
-    <label class="form-label">Rank Name:</label>
-    <input type="text" class="form-control mt-2" placeholder="Enter rank and name">
-    <label class="form-label mt-2">Location:</label>
-    <input type="text" class="form-control mt-2" placeholder="Enter location">
-    <label class="form-label mt-2">Date:</label>
-    <input type="date" class="form-control mt-2" required>
-    <label class="form-label mt-2">Time (24hr):</label>
-    <input type="time" class="form-control mt-2" required>
-    <button class="btn btn-danger btn-sm mt-2" onclick="removeAppointment(this)">Remove</button>
-  `;
-  container.appendChild(div);
+    const container = document.getElementById("appointmentsContainer");
+
+    const appointmentDiv = document.createElement("div");
+    appointmentDiv.classList.add("appointment-entry", "p-3", "border", "rounded", "mb-3");
+    appointmentDiv.innerHTML = `
+        <div class="d-flex justify-content-between align-items-center">
+            <h6 class="mb-2">Appointment <span class="appointment-index"></span></h6>
+            <button class="btn btn-danger btn-sm" onclick="removeAppointment(this)">✖</button>
+        </div>
+        <label class="form-label">Rank Name:</label>
+        <input type="text" class="form-control mb-2" placeholder="Enter name">
+
+        <label class="form-label">Location:</label>
+        <input type="text" class="form-control mb-2" placeholder="Enter location">
+
+        <label class="form-label">Date:</label>
+        <input type="date" class="form-control mb-2">
+
+        <label class="form-label">Time:</label>
+        <input type="time" class="form-control">
+    `;
+
+    container.appendChild(appointmentDiv);
+    updateAppointmentIndexes(); // Fix index numbering
 }
 
 function updateAppointmentIndexes() {
