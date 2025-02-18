@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Next Timing Report</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>Next Timing</h2>
+      <button class="btn btn-outline-secondary" id="toggleTheme">
+        <i class="fa-solid fa-moon" style="color: orange;"></i>
+      </button>
+    </div>
+    
+    <label class="form-label mt-3">Time:</label>
+    <input type="time" id="time" class="form-control" value="06:05">
+    
+    <label class="form-label mt-3">Activity:</label>
+    <select id="activitySelect" class="form-select" onchange="toggleOtherActivity()">
+      <option value="First Parade">First Parade</option>
+      <option value="Last Parade">Last Parade</option>
+      <option value="Breakfast">Breakfast</option>
+      <option value="Lunch">Lunch</option>
+      <option value="Dinner">Dinner</option>
+      <option value="Other">Other</option>
+    </select>
+    <div id="otherActivityDiv" class="mt-2" style="display: none;">
+      <input type="text" id="otherActivity" class="form-control" placeholder="Type activity here">
+    </div>
+    
+    <label class="form-label mt-3">Venue:</label>
+    <select id="venueSelect" class="form-select" onchange="toggleOtherVenue()">
+      <option value="Outside Notus Garage">Outside Notus Garage</option>
+      <option value="BattleKing Room">BattleKing Room</option>
+      <option value="Other">Other</option>
+    </select>
+    <div id="otherVenueDiv" class="mt-2" style="display: none;">
+      <input type="text" id="otherVenue" class="form-control" placeholder="Type venue here">
+    </div>
+    
+    <label class="form-label mt-3">Attire:</label>
+    <select id="attire" class="form-select">
+      <option value="S4">S4</option>
+      <option value="Admin">Admin</option>
+      <option value="PT Kit">PT Kit</option>
+    </select>
+    
+    <label class="form-label mt-3">Things to bring:</label>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="E-PACK" id="bringEp">
+      <label class="form-check-label" for="bringEp">E-PACK</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="Water Bottle" id="bringWater">
+      <label class="form-check-label" for="bringWater">Water Bottle</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="Thermometer" id="bringThermo">
+      <label class="form-check-label" for="bringThermo">Thermometer</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="11B" id="bring11B">
+      <label class="form-check-label" for="bring11B">11B</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="Polar Watch" id="bringWatch">
+      <label class="form-check-label" for="bringWatch">Polar Watch</label>
+    </div>
+    
+    <button class="btn btn-success w-100 mt-3" onclick="generateNextTiming()">Generate</button>
+    <textarea id="output" class="form-control mt-3" readonly></textarea>
+    <button class="btn btn-secondary w-100 mt-2" onclick="copyText()">Copy to Clipboard</button>
+  </div>
+  
+  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
