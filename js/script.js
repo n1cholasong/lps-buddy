@@ -80,6 +80,46 @@ function formatTimeWithoutColon(timeStr) {
   return timeStr.replace(":", "");
 }
 
+// Appointment Handling
+let appointmentCount = 0;
+function addAppointment() {
+  appointmentCount++;
+  const container = document.getElementById("appointmentsContainer");
+  const div = document.createElement("div");
+  div.classList.add("appointment-entry");
+  div.innerHTML = `
+    <h6>Appointment ${appointmentCount}</h6>
+    <label class="form-label">Rank Name:</label>
+    <input type="text" class="form-control mt-2" placeholder="Enter rank and name">
+    <label class="form-label mt-2">Location:</label>
+    <input type="text" class="form-control mt-2" placeholder="Enter location">
+    <label class="form-label mt-2">Date:</label>
+    <input type="date" class="form-control mt-2" required>
+    <label class="form-label mt-2">Time (24hr):</label>
+    <input type="time" class="form-control mt-2" required>
+    <button class="btn btn-danger btn-sm mt-2" onclick="removeAppointment(this)">Remove</button>
+  `;
+  container.appendChild(div);
+}
+
+function removeAppointment(button) {
+  button.parentElement.remove();
+}
+
+// Helper: Format appointment date from "YYYY-MM-DD" to "DD Month YYYY"
+function formatAppointmentDate(dateStr) {
+  const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  const parts = dateStr.split("-");
+  if (parts.length !== 3) return dateStr;
+  const year = parts[0];
+  const monthIndex = parseInt(parts[1], 10) - 1;
+  const day = parts[2];
+  return `${day} ${months[monthIndex]} ${year}`;
+}
+
 // Parade State Update: Generate Text
 function generateText() {
   const date = document.getElementById("date").value;
@@ -98,10 +138,25 @@ function generateText() {
   const fallIn = document.getElementById("fallIn").value;
   const remarks = document.getElementById("remarks").value;
 
+  // Format time fields (remove colon)
   const bookOutFormatted = bookOut ? formatTimeWithoutColon(bookOut) : "";
   const bookInFormatted = bookIn ? formatTimeWithoutColon(bookIn) : "";
   const lightsOutFormatted = lightsOut ? formatTimeWithoutColon(lightsOut) : "";
   const fallInFormatted = fallIn ? formatTimeWithoutColon(fallIn) : "";
+
+  let appointmentsText = "";
+  document.querySelectorAll("#appointmentsContainer .appointment-entry").forEach((entry, index) => {
+    const inputs = entry.querySelectorAll("input");
+    const rankName = inputs[0].value.trim();
+    const location = inputs[1].value.trim();
+    const dateInput = inputs[2].value.trim();
+    const timeInput = inputs[3].value.trim();
+    const formattedDate = dateInput ? formatAppointmentDate(dateInput) : "";
+    const formattedTime = timeInput ? formatTimeWithoutColon(timeInput) : "";
+    if (rankName || location || formattedDate || formattedTime) {
+      appointmentsText += `${rankName}\nLocation: ${location}\nDate: ${formattedDate}\nTime: ${formattedTime}\n\n`;
+    }
+  });
 
   const text = `Parade State Update 13th ASCC FATA 
 
@@ -128,7 +183,7 @@ Book in time: ${bookInFormatted}
 Out of camp: ${outOfCamp}/30
 
 Upcoming appointments: 
-None
+${appointmentsText || "None"}
 
 OOC: ${ooc}
 
