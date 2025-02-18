@@ -86,7 +86,7 @@ function addAppointment() {
   appointmentCount++;
   const container = document.getElementById("appointmentsContainer");
   const div = document.createElement("div");
-  div.classList.add("appointment-entry, mb-3");
+  div.classList.add("appointment-entry", "mb-3");
   div.innerHTML = `
     <h6>Appointment ${appointmentCount}</h6>
     <label class="form-label">Rank Name:</label>
