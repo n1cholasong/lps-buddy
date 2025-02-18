@@ -154,7 +154,7 @@ function generateText() {
     const formattedDate = dateInput ? formatAppointmentDate(dateInput) : "";
     const formattedTime = timeInput ? formatTimeWithoutColon(timeInput) : "";
     if (rankName || location || formattedDate || formattedTime) {
-      appointmentsText += `${rankName}\nLocation: ${location}\nDate: ${formattedDate}\nTime: ${formattedTime}\n\n`;
+      appointmentsText += `\n${rankName}\nLocation: ${location}\nDate: ${formattedDate}\nTime: ${formattedTime}`;
     }
   });
 
