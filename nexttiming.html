@@ -64,61 +64,72 @@
     </select>
     
     <label class="form-label mt-3">Things to bring:</label>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="E-PACK" id="bringEp">
-      <label class="form-check-label" for="bringEp">E-PACK</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="Water Bottle" id="bringWater">
-      <label class="form-check-label" for="bringWater">Water Bottle</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="Thermometer" id="bringThermo">
-      <label class="form-check-label" for="bringThermo">Thermometer</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="11B" id="bring11B">
-      <label class="form-check-label" for="bring11B">11B</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="Polar Watch" id="bringWatch">
-      <label class="form-check-label" for="bringWatch">Polar Watch</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="SAR21" id="bringSar21">
-      <label class="form-check-label" for="bringSar21">SAR21</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="Helmet" id="bringHelmet">
-      <label class="form-check-label" for="bringHelmet">Helmet</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="FAD" id="bringFAD">
-      <label class="form-check-label" for="bringFAD">FAD</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="ID Tag" id="bringIdTag">
-      <label class="form-check-label" for="bringIdTag">ID Tag</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="LBS" id="bringLBS">
-      <label class="form-check-label" for="bringLBS">LBS</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="Assault Pack" id="bringAssaultPack">
-      <label class="form-check-label" for="bringAssaultPack">Assault Bag</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="Field Pack" id="bringFieldPack">
-      <label class="form-check-label" for="bringFieldPack">Field Pack</label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="10-Pack" id="bring10Pack">
-      <label class="form-check-label" for="bring10Pack">10-Pack</label>
+    <div class="row">
+       <!-- Group 1: Essentials -->
+      <div class="col-md-4">
+        <small class="text-muted">Essentials</small>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="E-PACK" id="bringEp">
+          <label class="form-check-label" for="bringEp">E-PACK</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="Water Bottle" id="bringWater">
+          <label class="form-check-label" for="bringWater">Water Bottle</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="Thermometer" id="bringThermo">
+          <label class="form-check-label" for="bringThermo">Thermometer</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="FAD" id="bringFAD">
+          <label class="form-check-label" for="bringFAD">FAD</label>
+        </div>
+      </div>
+      <!-- Group 2: Personal Gear -->
+      <div class="col-md-4">
+        <small class="text-muted">Personal Gear</small>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="SAR21" id="bringSar21">
+          <label class="form-check-label" for="bringSar21">SAR21</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="Helmet" id="bringHelmet">
+          <label class="form-check-label" for="bringHelmet">Helmet</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="ID Tag" id="bringIdTag">
+          <label class="form-check-label" for="bringIdTag">ID Tag</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="LBS" id="bringLBS">
+          <label class="form-check-label" for="bringLBS">LBS</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="Polar Watch" id="bringWatch">
+          <label class="form-check-label" for="bringWatch">Polar Watch</label>
+        </div>
+      </div>
+      
+      <!-- Group 3: Backpacks -->
+      <div class="col-md-4">
+        <small class="text-muted">Backpacks</small>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="Assault Pack" id="bringAssaultPack">
+          <label class="form-check-label" for="bringAssaultPack">Assault Pack</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="Field Pack" id="bringFieldPack">
+          <label class="form-check-label" for="bringFieldPack">Field Pack</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="10-Pack" id="bring10Pack">
+          <label class="form-check-label" for="bring10Pack">10-Pack</label>
+        </div>
+      </div>
     </div>
     
     <div class="form-check mt-3">
-      <label class="form-check-label" for="safetyStores">Include Safety Stores?</label>
+      <label class="form-label" for="safetyStores">Include Safety Stores?</label>
       <input class="form-check-input ms-3" type="checkbox" id="safetyStores">
     </div>
     
