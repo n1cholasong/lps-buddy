@@ -250,43 +250,45 @@ REMARKS: ${remarks}`;
 }
 
 // Next Timing: Generate Text
-function generateNextTiming() {
-  const timeInput = document.getElementById("time").value;
-  const formattedTime = timeInput ? formatTimeWithoutColon(timeInput) : "";
+function generateNextTimingText() {
+    const timeInput = document.getElementById("time").value;
+    const formattedTime = timeInput ? formatTimeWithoutColon(timeInput) : "";
 
-  const activitySelect = document.getElementById("activitySelect");
-  let activity = activitySelect ? activitySelect.value : "";
-  if (activity === "Other") {
-    activity = document.getElementById("otherActivity").value;
-  }
+    const activitySelect = document.getElementById("activitySelect");
+    let activity = activitySelect ? activitySelect.value : "";
+    if (activity === "Other") {
+      activity = document.getElementById("otherActivity").value;
+    }
+  
+    const venueSelect = document.getElementById("venueSelect");
+    let venue = venueSelect ? venueSelect.value : "";
+    if (venue === "Other") {
+      venue = document.getElementById("otherVenue").value;
+    }
+  
+    const attire = document.getElementById("attire") ? document.getElementById("attire").value : "";
 
-  const venueSelect = document.getElementById("venueSelect");
-  let venue = venueSelect ? venueSelect.value : "";
-  if (venue === "Other") {
-    venue = document.getElementById("otherVenue").value;
-  }
+    let activityText = activity === "Other" ? customActivity : activity;
+    let venueText = venue === "Other" ? customVenue : venue;
 
-  const attire = document.getElementById("attire") ? document.getElementById("attire").value : "";
+    // Collect checked items
+    const bringItems = [];
+    document.querySelectorAll(".form-check-input:checked").forEach(item => {
+        bringItems.push(item.value);
+    });
 
-  const things = [];
-  if (document.getElementById("bringEp") && document.getElementById("bringEp").checked) things.push("E-PACK");
-  if (document.getElementById("bringWater") && document.getElementById("bringWater").checked) things.push("Water Bottle");
-  if (document.getElementById("bringThermo") && document.getElementById("bringThermo").checked) things.push("Thermometer");
-  if (document.getElementById("bring11B") && document.getElementById("bring11B").checked) things.push("11B");
-  if (document.getElementById("bringWatch") && document.getElementById("bringWatch").checked) things.push("Polar Watch");
+    // Format the final text output
+    let outputText = `NEXT TIMING\n`;
+    outputText += `Time: *${time}*\n`;
+    outputText += `Activity: ${activityText}\n`;
+    outputText += `Venue: ${venueText}\n`;
+    outputText += `Attire: ${attire}\n`;
 
-  const thingsText = things.join(", ");
+    if (bringItems.length > 0) {
+        outputText += `\nThings to bring:\n${bringItems.join(", ")}`;
+    }
 
-  const outputText = `NEXT TIMING
-Time: *${formattedTime}*
-Activity: ${activity}
-Venue: ${venue}
-Attire: ${attire}
-
-Things to bring:
-${thingsText}`;
-
-  document.getElementById("output").value = outputText;
+    document.getElementById("output").value = outputText;
 }
 
 function copyText() {
