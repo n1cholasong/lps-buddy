@@ -279,7 +279,7 @@ function generateNextTiming() {
 
     // Format the final text output
     let outputText = `NEXT TIMING\n`;
-    outputText += `Time: *${time}*\n`;
+    outputText += `Time: *${formattedTime}*\n`;
     outputText += `Activity: ${activityText}\n`;
     outputText += `Venue: ${venueText}\n`;
     outputText += `Attire: ${attire}\n`;
