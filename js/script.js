@@ -251,45 +251,36 @@ REMARKS: ${remarks}`;
 }
 
 // Next Timing: Generate Text
-function generateNextTiming() {
-    const timeInput = document.getElementById("time").value;
-    const formattedTime = timeInput ? formatTimeWithoutColon(timeInput) : "";
+function generateNextTimingText() {
+    const time = document.getElementById("timeField").value;
+    const activity = document.getElementById("activity").value;
+    const venue = document.getElementById("venue").value;
+    const attire = document.getElementById("attire").value;
+    const remarks = document.getElementById("remarks").value.trim();
+    const safetyStoresChecked = document.getElementById("safetyStores").checked;
 
-    const activitySelect = document.getElementById("activitySelect");
-    let activity = activitySelect ? activitySelect.value : "";
-    if (activity === "Other") {
-      activity = document.getElementById("otherActivity").value;
-    }
-  
-    const venueSelect = document.getElementById("venueSelect");
-    let venue = venueSelect ? venueSelect.value : "";
-    if (venue === "Other") {
-      venue = document.getElementById("otherVenue").value;
-    }
-  
-    const attire = document.getElementById("attire") ? document.getElementById("attire").value : "";
-
-    let activityText = activity === "Other" ? customActivity : activity;
-    let venueText = venue === "Other" ? customVenue : venue;
-
-    // Collect checked items
-    const bringItems = [];
-    document.querySelectorAll(".form-check-input:checked").forEach(item => {
-        bringItems.push(item.value);
+    let thingsToBring = [];
+    document.querySelectorAll(".form-check-input:checked").forEach((checkbox) => {
+        if (checkbox.id !== "safetyStores") { // Exclude safety store checkbox
+            thingsToBring.push(checkbox.value);
+        }
     });
 
-    // Format the final text output
-    let outputText = `NEXT TIMING\n`;
-    outputText += `Time: *${formattedTime}*\n`;
-    outputText += `Activity: ${activityText}\n`;
-    outputText += `Venue: ${venueText}\n`;
-    outputText += `Attire: ${attire}\n`;
+    let textOutput = `NEXT TIMING\nTime: *${time}*\nActivity: ${activity}\nVenue: ${venue}\nAttire: ${attire}`;
 
-    if (bringItems.length > 0) {
-        outputText += `\nThings to bring:\n${bringItems.join(", ")}`;
+    if (thingsToBring.length > 0) {
+        textOutput += `\nThings to bring: ${thingsToBring.join(", ")}`;
     }
 
-    document.getElementById("output").value = outputText;
+    if (safetyStoresChecked) {
+        textOutput += `\n\n*Safety Stores*\n• 1× Caged Trolley\n• 1× Bench\n• 1× Table\n• 2× Drinking Cambro\n• 1× Safety Cambro (12 packets of ziplocks)\n• 2× Jerry Can\n• 2× Packet of Cups\n• 1× Trash Bag`;
+    }
+
+    if (remarks !== "") {
+        textOutput += `\n\nRemarks: ${remarks}`;
+    }
+
+    document.getElementById("output").value = textOutput;
 }
 
 function setCurrentTime() {
