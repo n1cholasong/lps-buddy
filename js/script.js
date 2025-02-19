@@ -250,7 +250,7 @@ REMARKS: ${remarks}`;
 }
 
 // Next Timing: Generate Text
-function generateNextTimingText() {
+function generateNextTiming() {
     const timeInput = document.getElementById("time").value;
     const formattedTime = timeInput ? formatTimeWithoutColon(timeInput) : "";
 
