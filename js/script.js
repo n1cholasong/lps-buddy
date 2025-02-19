@@ -298,7 +298,7 @@ function setCurrentTime() {
     const minutes = now.getMinutes().toString().padStart(2, "0");
     const currentTime = `${hours}:${minutes}`; // Format: HHMM (without colon)
 
-    const timeInput = document.getElementById("timeField"); // Update with your actual time field ID
+    const timeInput = document.getElementById("time"); // Update with your actual time field ID
     if (timeInput) {
         timeInput.value = currentTime;
     }
