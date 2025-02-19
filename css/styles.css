@@ -55,4 +55,17 @@ body.dark-mode .card .btn {
 
 label.form-label {
   font-size: 1.1rem;
+  font-weight: 600;
+}
+
+small.text-muted {
+  color: #6c757d;
+}
+body.dark-mode small.text-muted {
+  color: #a9a9a9;
+}
+
+label.safety-label {
+  font-size: 1.1rem; /* Same as form-label */
+  font-weight: 600;  /* Same as form-label */
 }
