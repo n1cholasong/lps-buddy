@@ -116,6 +116,14 @@
       <label class="form-check-label" for="bring10Pack">10-Pack</label>
     </div>
     
+    <div class="form-check mt-3">
+      <input class="form-check-input" type="checkbox" id="safetyStores">
+      <label class="form-check-label" for="safetyStores">Include Safety Stores?</label>
+    </div>
+    
+    <label for="remarks" class="form-label mt-3">Remarks:</label>
+    <textarea id="remarks" class="form-control" placeholder="Enter remarks (if any)"></textarea>
+    
     <button class="btn btn-success w-100 mt-3" onclick="generateNextTiming()"><i class="fa-solid fa-gear"></i> Generate</button>
     <textarea id="output" class="form-control mt-3" readonly></textarea>
     <button class="btn btn-secondary w-100 mt-2" onclick="copyText()"><i class="fa-solid fa-copy"></i> Copy to Clipboard</button>
