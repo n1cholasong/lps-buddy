@@ -252,7 +252,7 @@ REMARKS: ${remarks}`;
 
 // Next Timing: Generate Text
 function generateNextTimingText() {
-    const time = document.getElementById("timeField").value;
+    const time = document.getElementById("time").value;
     const activity = document.getElementById("activity").value;
     const venue = document.getElementById("venue").value;
     const attire = document.getElementById("attire").value;
