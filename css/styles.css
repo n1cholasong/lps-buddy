@@ -58,12 +58,13 @@ label.form-label {
   font-weight: 600;
 }
 
-small.text-muted {
-  color: #6c757d;
+body.dark-mode .text-muted {
+  color: #aaa !important;
 }
 
-body.dark-mode small.text-muted {
-  color: #a9a9a9;
+body.dark-mode ::placeholder {
+  color: #ccc !important;
+  opacity: 1;
 }
 
 label.safety-label {
