@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Routine Orders</title>
+  <!-- Bootstrap CSS from CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body onload="initializeRoutineDefaults()">
+  <div class="container my-4">
+    <!-- Back Button -->
+    <a href="index.html" class="text-primary text-decoration-none d-inline-flex align-items-center mb-3">
+      <i class="fa-solid fa-chevron-left"></i>
+      <span class="ms-1">Home</span>
+    </a>
+    
+    <!-- Header with dark mode toggle -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2>Routine Orders</h2>
+      <button class="btn btn-outline-secondary" id="toggleTheme">
+        <i class="fa-solid fa-moon" style="color: orange;"></i>
+      </button>
+    </div>
+    
+    <!-- Date Picker -->
+    <label class="form-label">Date:</label>
+    <input type="date" id="routineDate" class="form-control mb-2">
+    
+    <!-- Permanent Routine Orders (Predefined Activities) -->
+    <div id="permanentContainer" class="mb-3">
+      <div class="row g-1 mb-2 align-items-center permanent-row">
+        <div class="col-4">
+          <input type="time" class="form-control routine-time" data-activity="Lights Out">
+        </div>
+        <div class="col-8">
+          <input type="text" class="form-control readonly-activity" value="Lights Out" readonly>
+        </div>
+      </div>
+      <div class="row g-1 mb-2 align-items-center permanent-row">
+        <div class="col-4">
+          <input type="time" class="form-control routine-time" data-activity="Reveille">
+        </div>
+        <div class="col-8">
+          <input type="text" class="form-control readonly-activity" value="Reveille" readonly>
+        </div>
+      </div>
+      <div class="row g-1 mb-2 align-items-center permanent-row">
+        <div class="col-4">
+          <input type="time" class="form-control routine-time" data-activity="Draw arms">
+        </div>
+        <div class="col-8">
+          <input type="text" class="form-control readonly-activity" value="Draw arms" readonly>
+        </div>
+      </div>
+      <div class="row g-1 mb-2 align-items-center permanent-row">
+        <div class="col-4">
+          <input type="time" class="form-control routine-time" data-activity="First parade">
+        </div>
+        <div class="col-8">
+          <input type="text" class="form-control readonly-activity" value="First parade" readonly>
+        </div>
+      </div>
+      <div class="row g-1 mb-2 align-items-center permanent-row">
+        <div class="col-4">
+          <input type="time" class="form-control routine-time" data-activity="Breakfast">
+        </div>
+        <div class="col-8">
+          <input type="text" class="form-control readonly-activity" value="Breakfast" readonly>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Custom Routine Orders (User-Added Activities) -->
+    <div id="customRoutineContainer" class="mb-3">
+     
+    </div>
+    <div>
+        <button class="btn btn-primary mb-3" onclick="addRoutine()">+ Add Activity</button>
+    </div>
+    <!-- Remarks Field -->
+    <label class="form-label">Remarks:</label>
+    <textarea id="remarks" class="form-control mb-3" placeholder="Any additional remarks..."></textarea>
+    
+    <!-- Generate and Copy Buttons -->
+    <button class="btn btn-success w-100 mb-3" onclick="generateRoutineOrders()">
+      <i class="fa-solid fa-gear"></i> Generate Routine Orders
+    </button>
+    <textarea id="output" class="form-control mb-2" readonly></textarea>
+    <button class="btn btn-secondary w-100" onclick="copyText()">
+      <i class="fa-solid fa-copy"></i> Copy to Clipboard
+    </button>
+  </div>
+  
+  <script src="js/routine.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
