@@ -75,3 +75,10 @@ label.safety-label {
 #output {
   height: 300px;
 }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
