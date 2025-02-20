@@ -71,6 +71,6 @@ label.safety-label {
   font-weight: 600;  /* Same as form-label */
 }
 
-.output {
+#output {
   height: 300px;
 }
