@@ -253,9 +253,9 @@ REMARKS: ${remarks}`;
 // Next Timing: Generate Text
 function generateNextTimingText() {
     const time = document.getElementById("time").value;
-    const activity = document.getElementById("activity").value;
-    const venue = document.getElementById("venue").value;
-    const attire = document.getElementById("attire").value;
+    const activity = document.getElementById("activitySelect").value;
+    const venue = document.getElementById("venueSelect").value;
+    const attire = document.getElementById("attireSelect").value;
     const remarks = document.getElementById("remarks").value.trim();
     const safetyStoresChecked = document.getElementById("safetyStores").checked;
 
