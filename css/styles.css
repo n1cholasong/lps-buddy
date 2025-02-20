@@ -61,6 +61,7 @@ label.form-label {
 small.text-muted {
   color: #6c757d;
 }
+
 body.dark-mode small.text-muted {
   color: #a9a9a9;
 }
@@ -68,4 +69,8 @@ body.dark-mode small.text-muted {
 label.safety-label {
   font-size: 1.1rem; /* Same as form-label */
   font-weight: 600;  /* Same as form-label */
+}
+
+.output {
+  height: 300px;
 }
