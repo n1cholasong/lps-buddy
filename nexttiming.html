@@ -54,7 +54,7 @@
     </div>
     
     <label class="form-label mt-3">Attire:</label>
-    <select id="attireSelect" class="form-select">
+    <select id="attireSelect" class="form-select" onchange="toggleOtherAttire()">
       <option value="Smart 4">Smart 4</option>
       <option value="Long 4">Long 4</option>
       <option value="Hybrid">Hybrid</option>
@@ -140,7 +140,7 @@
     </div>
     
     <label for="remarks" class="form-label mt-3">Remarks:</label>
-    <textarea id="remarks" class="form-control" placeholder="Enter remarks (if any)"></textarea>
+    <textarea id="remarks" class="form-control" placeholder="Any additional remarks..."></textarea>
     
     <button class="btn btn-success w-100 mt-3" onclick="generateNextTimingText()"><i class="fa-solid fa-gear"></i> Generate</button>
     <textarea id="output" class="form-control mt-3" readonly></textarea>
