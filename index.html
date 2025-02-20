@@ -9,6 +9,14 @@
   <!-- FontAwesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Optional: If you want to adjust the button style further */
+    .card-grid .btn {
+      /* Example styling: */
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+  </style>
 </head>
 <body>
   <div class="container mt-4">
@@ -24,41 +32,45 @@
     <div class="card-grid">
       <!-- Parade State Update Card -->
       <div class="card h-100">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Parade State Update</h5>
-          <div class="mt-auto">
-            <a href="parade.html" class="btn btn-primary w-100">Visit the page</a>
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div class="text-center">
+            <i class="fa-solid fa-flag-checkered fa-4x mb-3"></i>
+            <h5 class="card-title">Parade State Update</h5>
           </div>
+          <a href="parade.html" class="btn btn-primary w-100 mt-3">Go</a>
         </div>
       </div>
       
       <!-- Ration Report Card -->
       <div class="card h-100">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Ration Report</h5>
-          <div class="mt-auto">
-            <a href="ration.html" class="btn btn-primary w-100">Visit the page</a>
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div class="text-center">
+            <i class="fa-solid fa-utensils fa-4x mb-3"></i>
+            <h5 class="card-title">Ration Report</h5>
           </div>
+          <a href="ration.html" class="btn btn-primary w-100 mt-3">Go</a>
         </div>
       </div>
       
       <!-- Next Timing Card -->
       <div class="card h-100">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Next Timing</h5>
-          <div class="mt-auto">
-            <a href="nexttiming.html" class="btn btn-primary w-100">Visit the page</a>
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div class="text-center">
+            <i class="fa-solid fa-clock fa-4x mb-3"></i>
+            <h5 class="card-title">Next Timing</h5>
           </div>
+          <a href="nexttiming.html" class="btn btn-primary w-100 mt-3">Go</a>
         </div>
       </div>
       
       <!-- Routine Orders Card -->
       <div class="card h-100">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Routine Orders</h5>
-          <div class="mt-auto">
-            <a href="routine.html" class="btn btn-primary w-100">Visit the page</a>
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div class="text-center">
+            <i class="fa-solid fa-clipboard-list fa-4x mb-3"></i>
+            <h5 class="card-title">Routine Orders</h5>
           </div>
+          <a href="routine.html" class="btn btn-primary w-100 mt-3">Go</a>
         </div>
       </div>
     </div>
