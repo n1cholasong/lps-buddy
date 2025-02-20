@@ -32,6 +32,15 @@ body.dark-mode textarea {
   border: 1px solid #444;
 }
 
+body.dark-mode input:focus,
+body.dark-mode select:focus,
+body.dark-mode textarea:focus {
+    background-color: var(--form-bg-dark);
+    color: var(--text-dark);
+    border: 1px solid var(--form-border-dark);
+    box-shadow: none;
+}
+
 /* Card styles */
 body.dark-mode .card {
   background-color: #1e1e1e;
@@ -59,11 +68,11 @@ label.form-label {
 }
 
 body.dark-mode .text-muted {
-  color: #aaa !important;
+  color: #aaa;
 }
 
 body.dark-mode ::placeholder {
-  color: #ccc !important;
+  color: #ccc;
   opacity: 1;
 }
 
