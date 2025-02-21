@@ -1,6 +1,38 @@
-// Next Timing: Generate Text
+document.addEventListener("DOMContentLoaded", () => {
+  setCurrentTime();
+});
+
+function setCurrentTime() {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, "0");
+    const minutes = now.getMinutes().toString().padStart(2, "0");
+    const currentTime = `${hours}:${minutes}`; // Format: HHMM (without colon)
+
+    const timeInput = document.getElementById("time"); // Update with your actual time field ID
+    if (timeInput) {
+        timeInput.value = currentTime;
+    }
+}
+
+function toggleOtherActivity() {
+  const activitySelect = document.getElementById("activitySelect");
+  const otherActivityDiv = document.getElementById("otherActivityDiv");
+  otherActivityDiv.style.display = (activitySelect.value === "Other") ? "block" : "none";
+}
+
+function toggleOtherVenue() {
+  const venueSelect = document.getElementById("venueSelect");
+  const otherVenueDiv = document.getElementById("otherVenueDiv");
+  otherVenueDiv.style.display = (venueSelect.value === "Other") ? "block" : "none";
+}
+
+function toggleOtherAttire() {
+  const attireSelect = document.getElementById("attireSelect");
+  const otherAttireDiv = document.getElementById("otherAttireDiv");
+  otherAttireDiv.style.display = (attireSelect.value === "Other") ? "block" : "none";
+}
+
 function generateNextTimingText() {
-    // Get time value (assumed to be in HH:MM format; colon will be removed)
     const time = document.getElementById("time").value.replace(":", "");
     
     // For activity: if "Other" is selected, get custom activity from "otherActivity"
@@ -50,22 +82,4 @@ function generateNextTimingText() {
     }
     
     document.getElementById("output").value = textOutput;
-}
-
-function toggleOtherActivity() {
-  const activitySelect = document.getElementById("activitySelect");
-  const otherActivityDiv = document.getElementById("otherActivityDiv");
-  otherActivityDiv.style.display = (activitySelect.value === "Other") ? "block" : "none";
-}
-
-function toggleOtherVenue() {
-  const venueSelect = document.getElementById("venueSelect");
-  const otherVenueDiv = document.getElementById("otherVenueDiv");
-  otherVenueDiv.style.display = (venueSelect.value === "Other") ? "block" : "none";
-}
-
-function toggleOtherAttire() {
-  const attireSelect = document.getElementById("attireSelect");
-  const otherAttireDiv = document.getElementById("otherAttireDiv");
-  otherAttireDiv.style.display = (attireSelect.value === "Other") ? "block" : "none";
 }
