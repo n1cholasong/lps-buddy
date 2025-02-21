@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-SG">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
+
 <body onload="initializeDefaults()">
   <div class="container my-4">
     <a href="index.html" class="text-primary text-decoration-none d-flex align-items-center mb-3">
@@ -20,68 +23,109 @@
         <i class="fa-solid fa-moon" style="color: orange;"></i>
       </button>
     </div>
-    
+
     <label class="form-label">Date:</label>
     <input type="text" id="date" class="form-control">
-    
+
     <label class="form-label mt-3">Meal Type:</label>
     <select id="mealType" class="form-select">
       <option value="LUNCH">LUNCH</option>
       <option value="DINNER">DINNER</option>
       <option value="BREAKFAST">BREAKFAST</option>
     </select>
-    
+
     <h5 class="mt-3">Daily Ration Reporting</h5>
-    <div class="counter-group">
-      <label class="form-label">NM:</label>
-      <div class="input-group">
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('nm', -1, 27)"><i class="fa-solid fa-minus"></i></button>
+    <label class="form-label">NM:</label>
+    <div class="row counter-group">
+      <div class="col input-group">
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('nm', -1)"><i class="fa-solid fa-minus"></i></button>
         <input type="text" id="nm" class="form-control text-center" value="27" readonly>
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('nm', 1, 27)"><i class="fa-solid fa-plus"></i></button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('nm', 1)"><i class="fa-solid fa-plus"></i></button>
+      </div>
+      <div class="col-auto">
+        <span class="fs-5 text-muted">/</span>
+      </div>
+      <div class="col input-group">
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('nmMax', -1)"><i class="fa-solid fa-minus"></i></button>
+        <input type="text" id="nmMax" class="form-control text-center" value="27" readonly>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('nmMax', 1)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
-    <div class="counter-group">
-      <label class="form-label">M:</label>
-      <div class="input-group">
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('m', -1, 2)"><i class="fa-solid fa-minus"></i></button>
-        <input type="text" id="m" class="form-control text-center" value="2" readonly>
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('m', 1, 2)"><i class="fa-solid fa-plus"></i></button>
+    <label class="form-label">M:</label>
+    <div class="row counter-group">
+      <div class="col input-group">
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('m', -1)"><i class="fa-solid fa-minus"></i></button>
+        <input type="text" id="m" class="form-control text-center" value="3" readonly>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('m', 1)"><i class="fa-solid fa-plus"></i></button>
+      </div>
+      <div class="col-auto">
+        <span class="fs-5 text-muted">/</span>
+      </div>
+      <div class="col input-group">
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('mMax', -1)"><i class="fa-solid fa-minus"></i></button>
+        <input type="text" id="mMax" class="form-control text-center" value="3" readonly>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('mMax', 1)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
-    <div class="counter-group">
-      <label class="form-label">VI:</label>
-      <div class="input-group">
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('vi', -1, 1)"><i class="fa-solid fa-minus"></i></button>
+    <label class="form-label">VI:</label>
+    <div class="row counter-group">
+      <div class="col input-group">
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('vi', -1)"><i class="fa-solid fa-minus"></i></button>
         <input type="text" id="vi" class="form-control text-center" value="1" readonly>
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('vi', 1, 1)"><i class="fa-solid fa-plus"></i></button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('vi', 1)"><i class="fa-solid fa-plus"></i></button>
+      </div>
+      <div class="col-auto">
+        <span class="fs-5 text-muted">/</span>
+      </div>
+      <div class="col input-group">
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('viMax', -1)"><i class="fa-solid fa-minus"></i></button>
+        <input type="text" id="viMax" class="form-control text-center" value="1" readonly>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('viMax', 1)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
-    <div class="counter-group">
-      <label class="form-label">VC:</label>
-      <div class="input-group">
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('vc', -1, 0)"><i class="fa-solid fa-minus"></i></button>
+    <label class="form-label">VC:</label>
+    <div class="row counter-group">
+      <div class="col input-group">
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('vc', -1)"><i class="fa-solid fa-minus"></i></button>
         <input type="text" id="vc" class="form-control text-center" value="0" readonly>
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('vc', 1, 0)"><i class="fa-solid fa-plus"></i></button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('vc', 1)"><i class="fa-solid fa-plus"></i></button>
+      </div>
+      <div class="col-auto">
+        <span class="fs-5 text-muted">/</span>
+      </div>
+      <div class="col input-group">
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('vcMax', -1)"><i class="fa-solid fa-minus"></i></button>
+        <input type="text" id="vcMax" class="form-control text-center" value="0" readonly>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('vcMax', 1)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
-    <div class="counter-group">
-      <label class="form-label">NMSD:</label>
-      <div class="input-group">
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('nmsd', -1, 1)"><i class="fa-solid fa-minus"></i></button>
+    <label class="form-label">NMSD:</label>
+    <div class="row counter-group">
+      <div class="col input-group">
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('nmsd', -1)"><i class="fa-solid fa-minus"></i></button>
         <input type="text" id="nmsd" class="form-control text-center" value="1" readonly>
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('nmsd', 1, 1)"><i class="fa-solid fa-plus"></i></button>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('nmsd', 1)"><i class="fa-solid fa-plus"></i></button>
+      </div>
+      <div class="col-auto">
+        <span class="fs-5 text-muted">/</span>
+      </div>
+      <div class="col input-group">
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('nmsdMax', -1)"><i class="fa-solid fa-minus"></i></button>
+        <input type="text" id="nmsdMax" class="form-control text-center" value="1" readonly>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('nmsdMax', 1)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
-    
     <label class="form-label mt-3">Remarks:</label>
     <textarea id="remarks" class="form-control" placeholder="Any additional remarks..."></textarea>
-    
-    <button class="btn btn-success w-100 mt-3" onclick="generateRationText()"><i class="fa-solid fa-gear"></i> Generate</button>
+
+    <button class="btn btn-success w-100 mt-3" onclick="generateRationText()"><i class="fa-solid fa-gear"></i>
+      Generate</button>
     <textarea id="output" class="form-control mt-3" readonly></textarea>
-    <button class="btn btn-secondary w-100 mt-2" onclick="copyText()"><i class="fa-solid fa-copy"></i> Copy to Clipboard</button>
+    <button class="btn btn-secondary w-100 mt-2" onclick="copyText()"><i class="fa-solid fa-copy"></i> Copy to
+      Clipboard</button>
   </div>
-  
-    <script src="js/ration.js"></script>
+
+  <script src="js/ration.js"></script>
   <script src="js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

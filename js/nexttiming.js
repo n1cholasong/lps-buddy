@@ -1,85 +1,65 @@
-document.addEventListener("DOMContentLoaded", () => {
-  setCurrentTime();
+$(document).ready(function () {
+    setCurrentTime();
 });
 
 function setCurrentTime() {
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, "0");
     const minutes = now.getMinutes().toString().padStart(2, "0");
-    const currentTime = `${hours}:${minutes}`; // Format: HHMM (without colon)
-
-    const timeInput = document.getElementById("time"); // Update with your actual time field ID
-    if (timeInput) {
-        timeInput.value = currentTime;
-    }
+    const currentTime = `${hours}:${minutes}`;
+    $("#time").val(currentTime);
 }
 
 function toggleOtherActivity() {
-  const activitySelect = document.getElementById("activitySelect");
-  const otherActivityDiv = document.getElementById("otherActivityDiv");
-  otherActivityDiv.style.display = (activitySelect.value === "Other") ? "block" : "none";
+    var activitySelect = $("#activitySelect").val();
+    $("#otherActivityDiv").css("display", activitySelect === "Other" ? "block" : "none");
 }
 
 function toggleOtherVenue() {
-  const venueSelect = document.getElementById("venueSelect");
-  const otherVenueDiv = document.getElementById("otherVenueDiv");
-  otherVenueDiv.style.display = (venueSelect.value === "Other") ? "block" : "none";
+    var venueSelect = $("#venueSelect").val();
+    $("#otherVenueDiv").css("display", venueSelect === "Other" ? "block" : "none");
 }
 
 function toggleOtherAttire() {
-  const attireSelect = document.getElementById("attireSelect");
-  const otherAttireDiv = document.getElementById("otherAttireDiv");
-  otherAttireDiv.style.display = (attireSelect.value === "Other") ? "block" : "none";
+    var attireSelect = $("#attireSelect").val();
+    $("#otherAttireDiv").css("display", attireSelect === "Other" ? "block" : "none");
 }
 
 function generateNextTimingText() {
-    const time = document.getElementById("time").value.replace(":", "");
-    
-    // For activity: if "Other" is selected, get custom activity from "otherActivity"
-    const activitySelect = document.getElementById("activitySelect").value;
-    let activity = activitySelect;
-    if (activitySelect === "Other") {
-        activity = document.getElementById("otherActivity").value;
-    }
-    
-    // For venue: if "Other" is selected, get custom venue from "otherVenue"
-    const venueSelect = document.getElementById("venueSelect").value;
-    let venue = venueSelect;
-    if (venueSelect === "Other") {
-        venue = document.getElementById("otherVenue").value;
-    }
-    
-    // For attire: if "Other" is selected, get custom attire from "otherAttire"
-    const attireSelect = document.getElementById("attireSelect").value;
-    let attire = attireSelect;
-    if (attireSelect === "Other") {
-        attire = document.getElementById("otherAttire").value;
-    }
-    
-    const remarks = document.getElementById("remarks").value.trim();
-    const safetyStoresChecked = document.getElementById("safetyStores").checked;
-    
-    // Gather all checked "Things to bring" items, excluding the safetyStores checkbox
-    let thingsToBring = [];
-    document.querySelectorAll(".form-check-input:checked").forEach((checkbox) => {
-        if (checkbox.id !== "safetyStores") {
-            thingsToBring.push(checkbox.value);
+    var time = $("#time").val().replace(":", "");
+
+    var activitySelect = $("#activitySelect").val();
+    var activity = activitySelect === "Other" ? $("#otherActivity").val() : activitySelect;
+
+    var venueSelect = $("#venueSelect").val();
+    var venue = venueSelect === "Other" ? $("#otherVenue").val() : venueSelect;
+
+    var attireSelect = $("#attireSelect").val();
+    var attire = attireSelect === "Other" ? $("#otherAttire").val() : attireSelect;
+
+    var remarks = $.trim($("#remarks").val());
+    var safetyStoresChecked = $("#safetyStores").prop("checked");
+
+    var thingsToBring = [];
+    $(".form-check-input:checked").each(function () {
+        if (this.id !== "safetyStores") {
+            thingsToBring.push($(this).val());
         }
     });
-    
-    let textOutput = `NEXT TIMING ⏰\nTime: *${time}*\nActivity: ${activity}\nVenue: ${venue}\nAttire: ${attire}`;
-    
+
+    var textOutput = "NEXT TIMING ⏰\nTime: *" + time + "*\nActivity: " + activity + "\nVenue: " + venue + "\nAttire: " + attire;
+
     if (thingsToBring.length > 0) {
-        textOutput += `\nThings to bring: ${thingsToBring.join(", ")}`;
+        textOutput += "\nThings to bring:\n" + thingsToBring.join(", ");
     }
-    
+
     if (safetyStoresChecked) {
-        textOutput += `\n\n*Safety Stores*\n• 1× Caged Trolley\n• 1× Bench\n• 1× Table\n• 2× Drinking Cambro\n• 1× Safety Cambro (12 packets of ziplocks)\n• 2× Jerry Can\n• 2× Packet of Cups\n• 1× Trash Bag`;
+        textOutput += "\n\n*Safety Stores*\n• 1× Caged Trolley\n• 1× Bench\n• 1× Table\n• 2× Drinking Cambro\n• 1× Safety Cambro (12 packets of ziplocks)\n• 2× Jerry Can\n• 2× Packet of Cups\n• 1× Trash Bag";
     }
-    
+
     if (remarks !== "") {
-        textOutput += `\nRemarks: ${remarks}`;
+        textOutput += `\n\nRemarks: \n${remarks}`;
     }
-    
+
     document.getElementById("output").value = textOutput;
 }

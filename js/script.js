@@ -1,72 +1,81 @@
-document.addEventListener("DOMContentLoaded", () => {
-  applyTheme();
-  if (document.getElementById("date")) {
-    initializeDefaults();
-  }
+$(document).ready(function () {
+    applyTheme();
+    if ($("#date").length) {
+        initializeDefaults();
+    }
+
+    $("#toggleTheme").on("click", function () {
+        var currentTheme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        var newTheme = currentTheme === "dark" ? "light" : "dark";
+        $("body").removeClass(currentTheme + "-mode").addClass(newTheme + "-mode");
+        localStorage.setItem("theme", newTheme);
+        $("#toggleTheme").html(newTheme === "dark"
+            ? '<i class="fa-solid fa-sun" style="color: orange;"></i>'
+            : '<i class="fa-solid fa-moon" style="color: orange;"></i>');
+    });
 });
 
-// Dark Mode Toggle
-const toggleThemeBtn = document.getElementById("toggleTheme");
-if (toggleThemeBtn) {
-  toggleThemeBtn.addEventListener("click", () => {
-    let currentTheme = localStorage.getItem("theme") ||
-      (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    let newTheme = currentTheme === "dark" ? "light" : "dark";
-    document.body.classList.remove(currentTheme + "-mode");
-    document.body.classList.add(newTheme + "-mode");
-    localStorage.setItem("theme", newTheme);
-    toggleThemeBtn.innerHTML = newTheme === "dark"
-      ? '<i class="fa-solid fa-sun" style="color: orange;"></i>'
-      : '<i class="fa-solid fa-moon" style="color: orange;"></i>';
-  });
-}
-
 function applyTheme() {
-  const savedTheme = localStorage.getItem("theme") ||
-    (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-  document.body.classList.add(savedTheme + "-mode");
-  if (toggleThemeBtn) {
-    toggleThemeBtn.innerHTML = savedTheme === "dark"
-      ? '<i class="fa-solid fa-sun" style="color: orange;"></i>'
-      : '<i class="fa-solid fa-moon" style="color: orange;"></i>';
-  }
+    var savedTheme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    $("body").addClass(savedTheme + "-mode");
+    $("#toggleTheme").html(savedTheme === "dark"
+        ? '<i class="fa-solid fa-sun" style="color: orange;"></i>'
+        : '<i class="fa-solid fa-moon" style="color: orange;"></i>');
 }
 
-// Initialize Defaults (e.g., auto-fill date in DDMMYY format)
 function initializeDefaults() {
-  const now = new Date();
-  const day = now.getDate().toString().padStart(2, '0');
-  const month = (now.getMonth() + 1).toString().padStart(2, '0');
-  const year = now.getFullYear().toString().slice(-2);
-  const dateField = document.getElementById("date");
-  if (dateField) {
-    dateField.value = `${day}${month}${year}`;
-  }
+    var now = new Date();
+    var day = now.getDate().toString().padStart(2, "0");
+    var month = (now.getMonth() + 1).toString().padStart(2, "0");
+    var year = now.getFullYear().toString().slice(-2);
+    $("#date").val(day + month + year);
 }
 
-// Adjust Counter (for -/+ buttons)
-function adjustCounter(id, change, max) {
-  const input = document.getElementById(id);
-  if (!input) return;
-  let value = parseInt(input.value) || 0;
-  value += change;
-  if (typeof max !== 'undefined') {
-    value = Math.min(Math.max(value, 0), max);
-  } else {
-    value = Math.max(value, 0);
-  }
-  input.value = value;
+function adjustCounter(currentId, change, max) {
+    var current = $("#" + currentId);
+    var maxValue = parseInt($("#" + currentId + "Max").val());
+
+    if (!current.length) {
+        console.error("Element not found: " + currentId);
+        return;
+    };
+
+    var value = parseInt(current.val()) || 0;
+    value += change;
+
+    maxValue = isNaN(maxValue) ? Infinity : maxValue;
+    value = Math.min(Math.max(value, 0), maxValue);
+
+    if (typeof max !== "undefined") {
+        value = Math.min(Math.max(value, 0), max);
+    } else {
+        value = Math.max(value, 0);
+    }
+    
+    current.val(value);
+    current.removeClass("is-invalid");
+
+    if (currentId.slice(-3) === "Max") {
+        var currentValue = parseInt($("#" + currentId.slice(0, -3)).val())
+
+        if (value == currentValue) {
+            $("#" + currentId.slice(0, -3)).removeClass("is-invalid")
+        } 
+    };
 }
 
-// Helper: Remove colon from time string (e.g., "17:30" => "1730")
 function formatTimeWithoutColon(timeStr) {
-  return timeStr.replace(":", "");
+    return timeStr.replace(":", "");
 }
 
 function copyText() {
-  const output = document.getElementById("output");
-  if (output) {
-    output.select();
-    navigator.clipboard.writeText(output.value).then(() => alert("Copied!"));
-  }
+    var $output = $("#output");
+    navigator.clipboard.writeText($output.val())
+        .then(function () {
+            alert("Copied to clipboard!");
+        })
+        .catch(function (err) {
+            console.error("Copy failed:", err);
+        });
 }
+
