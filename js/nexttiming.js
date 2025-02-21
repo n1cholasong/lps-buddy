@@ -52,18 +52,6 @@ function generateNextTimingText() {
     document.getElementById("output").value = textOutput;
 }
 
-function setCurrentTime() {
-    const now = new Date();
-    const hours = now.getHours().toString().padStart(2, "0");
-    const minutes = now.getMinutes().toString().padStart(2, "0");
-    const currentTime = `${hours}:${minutes}`; // Format: HHMM (without colon)
-
-    const timeInput = document.getElementById("time"); // Update with your actual time field ID
-    if (timeInput) {
-        timeInput.value = currentTime;
-    }
-}
-
 function toggleOtherActivity() {
   const activitySelect = document.getElementById("activitySelect");
   const otherActivityDiv = document.getElementById("otherActivityDiv");
