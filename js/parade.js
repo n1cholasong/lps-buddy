@@ -58,7 +58,7 @@ function generateText() {
   const paradeType = document.getElementById("paradeType").value;
   const sctRns = document.getElementById("sctRns").value;
   const octRns = document.getElementById("octRns").value;
-  const specRns = doucment.getElementById("specRns").value;
+  const specRns = document.getElementById("specRns").value;
   const sctWlr = document.getElementById("sctWlr").value;
   const reportingSick = document.getElementById("reportingSick").value;
   const attendB = document.getElementById("attendB").value;
