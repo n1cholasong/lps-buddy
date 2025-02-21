@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   applyTheme();
-  setCurrentTime();
   if (document.getElementById("date")) {
     initializeDefaults();
   }
@@ -43,18 +42,6 @@ function initializeDefaults() {
   if (dateField) {
     dateField.value = `${day}${month}${year}`;
   }
-}
-
-function setCurrentTime() {
-    const now = new Date();
-    const hours = now.getHours().toString().padStart(2, "0");
-    const minutes = now.getMinutes().toString().padStart(2, "0");
-    const currentTime = `${hours}:${minutes}`; // Format: HHMM (without colon)
-
-    const timeInput = document.getElementById("time"); // Update with your actual time field ID
-    if (timeInput) {
-        timeInput.value = currentTime;
-    }
 }
 
 // Adjust Counter (for -/+ buttons)
