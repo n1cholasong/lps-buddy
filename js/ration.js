@@ -1,5 +1,6 @@
 function generateRationText() {
     var date = $("#date").val();
+    var course = $('input[name="course"]:checked').val() || "";
     var mealType = $("#mealType").val();
 
     var nm = parseInt($("#nm").val()) || 0;
@@ -42,7 +43,7 @@ function generateRationText() {
         greeting = "evening";
     }
 
-    const text = `Good ${greeting} trainers, this is the ration report for 13th ASCC FATA
+    const text = `Good ${greeting} trainers, this is the ration report for 13th ASCC FATA ${course}
 
 *Daily Ration Reporting*
 ${date} *${mealType}*
