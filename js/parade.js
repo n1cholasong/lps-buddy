@@ -46,9 +46,9 @@ function formatAppointmentDate(dateStr) {
 
 function generateText() {
     var date = $("#date").val();
+    var course = $('input[name="course"]:checked').val() || "";
     var paradeType = $("#paradeType").val();
     var sctRns = $("#sctRns").val();
-    var octRns = $("#octRns").val();
     var specRns = $("#specRns").val();
     var sctWlr = $("#sctWlr").val();
     var reportingSick = $("#reportingSick").val();
@@ -85,18 +85,18 @@ function generateText() {
         }
     });
 
-    var text = `Parade State Update 13th ASCC FATA 📡 
+    var text = `Parade State Update 13th ASCC FATA ${course} 📡 
     
 ${date} *${paradeType}*
 
 Current Strength: 
 RnS
 SCT: ${sctRns}/14
-OCT: ${octRns}/1
 SPEC: ${specRns}/1
 
 WLR
 SCT: ${sctWlr}/16
+SPEC: ${specWlr}/1
 
 Reporting sick: *${reportingSick} pax*
 

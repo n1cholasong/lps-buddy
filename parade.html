@@ -28,6 +28,26 @@
     <label class="form-label mt-3">Date:</label>
     <input type="text" id="date" class="form-control">
 
+    <label class="form-label mt-3">Course:</label>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" id="wlr" name="course" value="WLR">
+      <label class="form-check-label" for="wlr">
+        WLR
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" id="rns" name="course" value="RNS">
+      <label class="form-check-label" for="rns">
+        RNS
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" id="both" name="course" value="Both">
+      <label class="form-check-label" for="both">
+        Both
+      </label>
+    </div>
+
     <label class="form-label mt-3">First/Last Parade:</label>
     <select id="paradeType" class="form-select">
       <option value="FIRST PARADE">First Parade</option>
@@ -42,14 +62,6 @@
         <button class="btn btn-outline-secondary" onclick="adjustCounter('sctRns', -1, 14)"><i class="fa-solid fa-minus"></i></button>
         <input type="text" id="sctRns" class="form-control text-center" value="14" readonly>
         <button class="btn btn-outline-secondary" onclick="adjustCounter('sctRns', 1, 14)"><i class="fa-solid fa-plus"></i></button>
-      </div>
-    </div>
-    <div class="counter-group">
-      <label class="form-label">OCT (RnS):</label>
-      <div class="input-group">
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('octRns', -1, 1)"><i class="fa-solid fa-minus"></i></button>
-        <input type="text" id="octRns" class="form-control text-center" value="1" readonly>
-        <button class="btn btn-outline-secondary" onclick="adjustCounter('octRns', 1, 1)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
     <div class="counter-group">
@@ -69,6 +81,14 @@
         <button class="btn btn-outline-secondary" onclick="adjustCounter('sctWlr', -1, 16)"><i class="fa-solid fa-minus"></i></button>
         <input type="text" id="sctWlr" class="form-control text-center" value="16" readonly>
         <button class="btn btn-outline-secondary" onclick="adjustCounter('sctWlr', 1, 16)"><i class="fa-solid fa-plus"></i></button>
+      </div>
+    </div>
+    <div class="counter-group">
+      <label class="form-label">SPEC (WLR):</label>
+      <div class="input-group">
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('specWlr', -1, 1)"><i class="fa-solid fa-minus"></i></button>
+        <input type="text" id="specWlr" class="form-control text-center" value="1" readonly>
+        <button class="btn btn-outline-secondary" onclick="adjustCounter('specWlr', 1, 1)"><i class="fa-solid fa-plus"></i></button>
       </div>
     </div>
 
