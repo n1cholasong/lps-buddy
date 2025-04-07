@@ -49,8 +49,9 @@ function generateText() {
     var course = $('input[name="course"]:checked').val() || "";
     var paradeType = $("#paradeType").val();
     var sctRns = $("#sctRns").val();
-    var specRns = $("#specRns").val();
     var sctWlr = $("#sctWlr").val();
+    var specRns = $("#specRns").val();
+    var specWlr = $("#specWlr").val();
     var reportingSick = $("#reportingSick").val();
     var attendB = $("#attendB").val();
     var attendC = $("#attendC").val();
