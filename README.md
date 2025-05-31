@@ -17,7 +17,7 @@ The role of the LPS (Leader Platoon Sergeant) is to lead the platoon and update 
 
 ## How to use
 
-1. The web application is hosted on Vercel you may click [here](https://lps-buddy-n1cholasongs-projects.vercel.app) to visit the site.
+1. The web application is hosted on Vercel you may click [here](https://lps-buddy.vercel.app) to visit the site.
 2. Choose the type of report you need by selecting one of the cards.
 3. Fill in the form fields as required.
 4. Generate the report and copy it to your clipboard for easy sharing.
