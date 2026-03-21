@@ -19,10 +19,10 @@ function addRoutine() {
         <div class="col-4">
           <input type="time" class="form-control routine-time">
         </div>
-        <div class="col-7">
+        <div class="col-6">
           <input type="text" class="form-control routine-activity" placeholder="Enter activity">
         </div>
-        <div class="col-1 ps-1">
+        <div class="col-2 ps-1">
           <button class="btn btn-danger h-100 w-100" onclick="removeRoutine(this)">
             <i class="fa-solid fa-trash"></i>
           </button>
