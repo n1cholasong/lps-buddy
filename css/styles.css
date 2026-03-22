@@ -81,7 +81,7 @@ label.safety-label {
   font-weight: 600;  /* Same as form-label */
 }
 
-#output {
+#output, #description {
   height: 300px;
 }
 

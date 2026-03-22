@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Incident Report</title>
+  <!-- Bootstrap CSS from CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body onload="initializeRoutineDefaults()">
+  <div class="container my-4">
+    <!-- Back Button -->
+    <a href="index.html" class="text-primary text-decoration-none d-inline-flex align-items-center mb-3">
+      <i class="fa-solid fa-chevron-left"></i>
+      <span class="ms-1">Home</span>
+    </a>
+    
+    <!-- Header with dark mode toggle -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2>Incident Report</h2>
+      <button class="btn btn-outline-secondary" id="toggleTheme">
+        <i class="fa-solid fa-moon" style="color: orange;"></i>
+      </button>
+    </div>
+    
+    <!-- Incident Type -->
+    <label class="form-label mt-3">1. Nature and Type of Activity:</label>
+    <select id="incidentSelect" class="form-select" onchange="toggleOtherIncident()">
+      <option value="" class="text-muted" disabled selected>Select Option</option>
+      <option value="Training Related">Training Related</option>
+      <option value="Non-Training Related">Non-Training Related</option>
+      <option value="Other">Others</option>
+    </select>
+    <div id="otherIncidentDiv" class="mt-2" style="display: none;">
+      <input type="text" id="otherIncident" class="form-control" placeholder="Enter incident nature/type">
+    </div>
+    
+    <!-- Personnel Involved -->
+    <label class="form-label mt-3">2. Personnel Involved:</label>
+    <div class="row g-1 align-items-center">
+        <div class="col-5">
+            <input type="text" id="nric" class="form-control"  placeholder="NRIC">
+        </div>
+        <div class="col-7">
+            <input type="text" id="name" class="form-control" placeholder="RANK & NAME">
+        </div>
+    </div>
+
+    <!-- Date & Time of Incident -->
+    <label class="form-label mt-3">3. Date & Time of Incident:</label>
+    <input type="datetime-local" id="date" class="form-control">
+    
+    <!-- Location of Incident -->
+    <label class="form-label mt-3">4. Location of Incident:</label>
+    <input type="text" id="location" class="form-control">
+
+    <!-- Description of Incident -->
+    <label class="form-label mt-3">5. Brief Description of Incident:</label>
+    <textarea id="description" class="form-control mb-3">
+
+On DDMMYY, at around HHMMhrs, TXXXX123A, [RANK & NAME], from 14th ASCC (FATA) just completed [ACTIVITY] when he felt unwell.
+
+At HHMMhrs, ...
+
+At HHMMhrs, (continue with the description of the incident)
+    </textarea>
+    
+    <!-- Current Status -->
+    <label class="form-label mt-3">6. Current Status:</label>
+    <textarea id="status" class="form-control mb-3" placeholder="Current status of the personnel..."></textarea>
+
+    <!-- Follow up actions: -->
+    <label class="form-label mt-3">7. Follow up actions:</label>
+    <textarea id="actions" class="form-control mb-3" placeholder=""></textarea>
+
+    <!-- NOK -->
+    <label class="form-label mt-3">8. NOK Informed:</label>
+    <div class="btn-group w-100" role="group">
+        <input type="radio" class="btn-check" name="nokInformed" id="nokNo" value="No" checked>
+        <label class="btn btn-outline-primary" for="nokNo">No</label>
+        <input type="radio" class="btn-check" name="nokInformed" id="nokYes" value="Yes">
+        <label class="btn btn-outline-primary" for="nokYes">Yes</label>
+    </div>
+    
+    <!-- GSOC Verbal Report -->
+    <label class="form-label mt-3">9. GSOC Verbal Report:</label>
+    <div class="btn-group w-100" role="group">
+        <input type="radio" class="btn-check" name="gsocVerbalReport" id="gsocVerbalNo" value="No" checked>
+        <label class="btn btn-outline-primary" for="gsocVerbalNo">No</label>
+        <input type="radio" class="btn-check" name="gsocVerbalReport" id="gsocVerbalYes" value="Yes">
+        <label class="btn btn-outline-primary" for="gsocVerbalYes">Yes</label>
+    </div>
+
+    <!-- GSOC Written Report -->
+    <label class="form-label mt-3">10. GSOC Written Report:</label>
+    <div class="btn-group w-100" role="group">
+        <input type="radio" class="btn-check" name="gsocWrittenReport" id="gsocWrittenNo" value="No" checked>
+        <label class="btn btn-outline-primary" for="gsocWrittenNo">No</label>
+        <input type="radio" class="btn-check" name="gsocWrittenReport" id="gsocWrittenYes" value="Yes">
+        <label class="btn btn-outline-primary" for="gsocWrittenYes">Yes</label>
+    </div>
+
+    <!-- HQSA CDSO -->
+    <label class="form-label mt-3">11. HQSA CDSO:</label>
+    <div class="btn-group w-100" role="group">
+        <input type="radio" class="btn-check" name="cdsoInformed" id="cdsoNo" value="No" checked>
+        <label class="btn btn-outline-primary" for="cdsoNo">No</label>
+        <input type="radio" class="btn-check" name="cdsoInformed" id="cdsoYes" value="Yes">
+        <label class="btn btn-outline-primary" for="cdsoYes">Yes</label>
+    </div>  
+
+    <!-- ESIS -->
+    <label class="form-label mt-3">12. ESIS:</label>
+    <div class="btn-group w-100" role="group">
+        <input type="radio" class="btn-check" name="esisInformed" id="esisNo" value="No" checked>
+        <label class="btn btn-outline-primary" for="esisNo">No</label>
+        <input type="radio" class="btn-check" name="esisInformed" id="esisYes" value="Yes">
+        <label class="btn btn-outline-primary" for="esisYes">Yes</label>
+    </div>
+
+    <!-- Reported By -->
+    <label class="form-label mt-3">13. Reported By:</label>
+    <input type="text" class="form-control mb-3" id="reportedBy" placeholder="RANK & NAME">
+    
+    <!-- Generate and Copy Buttons -->
+    <button class="btn btn-success w-100 mb-3" onclick="generateIncidentReport()">
+      <i class="fa-solid fa-gear"></i> Generate
+    </button>
+    <textarea id="output" class="form-control mb-2" readonly></textarea>
+    <button class="btn btn-secondary w-100" onclick="copyText()">
+      <i class="fa-solid fa-copy"></i> Copy to Clipboard
+    </button>
+  </div>
+  
+  <script src="js/incident.js"></script>
+  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
