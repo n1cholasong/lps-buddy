@@ -97,11 +97,6 @@ function generateRoutineOrders() {
         outputText += "\nRemarks: \n" + remarks;
     }
 
-    var remarks = $.trim($("#remarks").val());
-    if (remarks !== "") {
-        outputText += "\nRemarks: \n" + remarks;
-    }
-
     $("#output").val(outputText);
 }
 
